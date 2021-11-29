@@ -25,21 +25,30 @@
         />
       </div>
 
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
     </v-app-bar>
 
     <v-main>
       <router-view/>
     </v-main>
+    <v-bottom-navigation app>
+      <v-btn to="/">
+        <span>Home</span>
+
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+
+      <v-btn to="/about">
+        <span>About</span>
+
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn to="/instructors">
+        <span>Instructors</span>
+
+        <v-icon>mdi-map-marker</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
