@@ -4,14 +4,7 @@
       Instructors
     </v-card-title>
     <v-card-text>
-      <ul>
-        <li
-          v-for="instructor in instructors"
-          :key="instructor.id"
-        >
-          {{ instructor.first_name }} {{ instructor.last_name }}
-        </li>
-      </ul>
+      <instructor-list :instructors="instructors" />
     </v-card-text>
     <v-card-actions>
     </v-card-actions>
@@ -20,8 +13,12 @@
 
 <script>
 import api from '@/services/api'
+import InstructorList from '@/components/InstructorList'
 export default {
   name: 'Instructors',
+  components: {
+    InstructorList
+  },
   data: () => ({
     instructors: []
   }),

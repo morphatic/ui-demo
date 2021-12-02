@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Instructors from '@/components/Instructors.vue'
+import Instructor from '@/components/Instructor.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/instructors',
     name: 'Instructors',
     component: Instructors
+  },
+  {
+    path: '/instructors/:id',
+    name: 'Instructor',
+    component: Instructor
   }
 ]
 
