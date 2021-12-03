@@ -23,7 +23,9 @@
       >
         <v-icon>mdi-arrow-left</v-icon> Back
       </v-btn>
-      <v-btn>
+      <v-btn
+        :to="`/instructors/edit/${id}`"
+      >
         <v-icon>mdi-pencil</v-icon> Edit
       </v-btn>
     </v-card-actions>
@@ -34,13 +36,8 @@
 import api from '@/services/api'
 export default {
   name: 'Instructor',
-  props: {
-    id: {
-      type: Number,
-      default: 1
-    }
-  },
   data: () => ({
+    id: 0,
     first_name: '',
     last_name: '',
     courses: []
@@ -48,9 +45,9 @@ export default {
   mounted () {
     // try to get the instructor ID from the URL
     // fallback to the ID set in the props
-    const id = this.$route.params.id || this.id
+    this.id = this.$route.params.id
     // get the data for the instructor to be displayed
-    api.service('instructors').get(id).then(
+    api.service('instructors').get(this.id).then(
       instructor => {
         this.first_name = instructor.first_name
         this.last_name = instructor.last_name

@@ -7,6 +7,13 @@
       <instructor-list :instructors="instructors" />
     </v-card-text>
     <v-card-actions>
+      <v-btn
+        color="primary"
+        to="/instructors/new"
+      >
+        <v-icon>mdi-plus</v-icon>
+        Add New
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -28,6 +35,11 @@ export default {
         this.instructors = result.data
       }
     )
+  },
+  methods: {
+    addInstructor () {
+      alert('hiya')
+    }
   }
 }
 </script>
